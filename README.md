@@ -1,2 +1,1 @@
-# neovim-zellij-workshop
-Neovim and Zellij workshop
+# Neovim and Zellij workshop

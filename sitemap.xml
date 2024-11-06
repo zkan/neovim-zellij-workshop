@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://mydomain.org/mysite/</loc>
+         <lastmod>2024-11-06</lastmod>
+    </url>
+    <url>
+         <loc>https://mydomain.org/mysite/neovim-and-zellij-together/</loc>
+         <lastmod>2024-11-06</lastmod>
+    </url>
+    <url>
+         <loc>https://mydomain.org/mysite/neovim-lazy/</loc>
+         <lastmod>2024-11-06</lastmod>
+    </url>
+    <url>
+         <loc>https://mydomain.org/mysite/vim-basics/</loc>
+         <lastmod>2024-11-06</lastmod>
+    </url>
+    <url>
+         <loc>https://mydomain.org/mysite/zellij-basics/</loc>
+         <lastmod>2024-11-06</lastmod>
+    </url>
+</urlset>

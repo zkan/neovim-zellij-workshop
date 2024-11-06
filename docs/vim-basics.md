@@ -6,3 +6,30 @@ Vim มาจากคำว่า Vi IMproved เป็น open-source cross-pl
 พัฒนาโดย [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar)
 และถุกปล่อยออกมาใช้งานตั้งแต่ปี 1991
 
+File: `test/fizzbuzz_test.rb`
+
+```ruby
+require "minitest/autorun"
+require_relative "../fizzbuzz"
+
+class FizzBuzzTest < Minitest::Test
+  def test_it_should_get_fizz_when_input_is_3
+    result = fizzbuzz(3)
+    assert_equal "Fizz", result
+  end
+end
+```
+
+File: `fizzbuzz.rb`
+
+```ruby
+def fizzbuzz(number)
+  "Fizz"
+end
+```
+
+รันคำสั่ง
+
+```sh
+ruby test/fizzbuzz_test.rb
+```

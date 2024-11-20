@@ -1,1 +1,1 @@
-# Lazy: Plugin Manager for Neovim
+# Neovim and its Plugin Manager (Lazy)

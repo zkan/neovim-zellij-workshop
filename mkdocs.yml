@@ -12,3 +12,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+nav:
+  - Home: index.md
+  - Vim Basics: vim-basics.md
+  - Neovim and its Plugin Manager (Lazy): neovim-lazy.md
+  - Zellij Basics: zellij-basics.md
+  - Neovim and Zellij Together: neovim-and-zellij-together.md

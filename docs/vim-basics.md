@@ -33,3 +33,31 @@ end
 ```sh
 ruby test/fizzbuzz_test.rb
 ```
+
+ไฟล์ `~/.vimrc`
+
+```vim
+syntax on " syntax highlighting
+
+set nocompatible    " use vim defaults
+set ls=2            " always show status line
+set tabstop=4       " numbers of spaces of tab character
+set shiftwidth=4    " numbers of spaces to (auto)indent
+set expandtab       " insert space characters whenever the tab key is pressed
+set autoindent      " always set autoindenting on
+set hlsearch        " highlight searches
+set incsearch       " do incremental searching
+set relativenumber  " show line numbers
+set number          " show current line number
+set ignorecase      " ignore case when searching
+set title           " set title in console title bar
+set ruler           " show the line and column number of the cursor position.
+set colorcolumn=100
+set autoread        " Reload unchanged files automatically.
+
+" Map arrow keys to <Nop> to disable its functionality
+map <Up>    <Nop>
+map <Down>  <Nop>
+map <Left>  <Nop>
+map <Right> <Nop>
+```

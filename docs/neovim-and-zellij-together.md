@@ -1,13 +1,9 @@
 # Neovim and Zellij Together
 
-การใช้ Neovim กับ Zellij จะช่วยทำให้เราเข้าสู่ flow state ได้
-
-![](./img/grok-developer-in-the-flow-state-coding-intensely-in-a-dimly-lit-room-with-a-blurred-background.jpg)
-
-**หมายเหตุ:** รูปถูกสร้างโดยใช้ Grok กับ prompt "developer in the flow state coding intensely in a dimly lit room with a blurred background"
-
 ในหัวข้อนี้จะอ้างอิงจากโครงสร้างของ Neovim configuration
 ที่ทำไว้ในหัวข้อ[การจัดโครงสร้างโฟลเดอร์ Neovim Configuration](neovim-lazy.md#neovim-configuration)
+
+## การสั่งรัน Ruby Tests ผ่าน Neovim ใน Zellij
 
 ที่ไฟล์ `~/.config/nvim/lua/config/keymaps.lua` ให้เพิ่ม
 
@@ -25,6 +21,8 @@ vim.keymap.set("n", "<leader>r", ":RunRubyTest<CR>", { desc = "run current file 
 ```
 
 โค้ดด้านบนจะเป็นการเซต key map ของ Neovim ที่ normal mode เวลาที่กด `<leader>r` ก็จะไปรันฟังก์ชั่น `run_ruby_test`
+
+## การนำไปใช้กับ Rails
 
 ```lua
 -- Rails

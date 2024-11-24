@@ -15,8 +15,8 @@ Vim มีโหมดที่ใช้หลัก ๆ ตามนี้
 
 1. **Insert:** เป็นโหมดที่ใช้สำรับเพิ่มหรือแก้ไขข้อความ เข้าโหมด insert โดยการกด
 
-    * `i` (insert before cursor)
-    * `a` (append after cursor)
+    * `i` (insert before cursor) ส่วน `I` ใช้ insert ที่ต้นบรรทัด
+    * `a` (append after cursor) ส่วน `A` ใช้ append ที่ท้ายบรรทัด
     * `o` (open a new line below current line and enter insert mode)
     * `O` (open a new line above current line and enter insert mode)
 
@@ -85,38 +85,33 @@ ruby test/fizzbuzz_test.rb
 
 ## Basic Navigation
 
-* `h`, `j`, `k`, `l` for left, down, up, right movement
-* `w` to move forward one word, `b` to move backward one word
-* `$` to go to the end of the line, `0` to go to the beginning
-* `gg` to go to the top of the file, `G` to go to the bottom
+* `h`, `j`, `k`, `l` สำหรับไปทาง ซ้าย, ลง, ขึ้น, ขวา ตามลำดับ
+* `w` ใช้เลื่อนไปข้างหน้า 1 word ส่วน `b` ใช้เลื่อนถอยหลัง 1 word
+* `$` ไปที่ท้ายสุดของบรรทัด ส่วน `0` ไปที่ต้นบรรทัด
+* `gg` ไปที่ด้านบนสุดของไฟล์ ส่วน `G` ไปที่ล่างสุด
 
 ## Editing Text
 
-* `x` to delete one character
-* `dw` to delete a word, `dd` to delete a line
-* `u` to undo the last change, `Ctrl+r` to redo
-
-## Inserting Text
-
-* `i`, `a`, `o` as mentioned for entering Insert Mode
-* `I` to insert at the beginning of the line, `A` to append at the end
+* `x` ใช้ลบ 1 character
+* `dw` ใช้ลบ 1 word ส่วน `dd` ใช้ลบทั้งแถว
+* `u` ใช้ undo การเปลี่ยนแปลงล่าสุด ส่วน `Ctrl+r` ใช้ redo
 
 ## Search and Replace
 
-* `/pattern` to search forward for 'pattern'
-* `?pattern` to search backward
-* `:s/old/new/g` to substitute 'old' with 'new' on the current line. Add `%` after s to apply to the whole file.
+* `/pattern` ใช้ search หาคำว่า "pattern" แบบ forward
+* `?pattern` ใช้ search แบบ backward
+* `:s/old/new/g` ใช้ replace คำว่า "old" ด้วยคำว่า "new" ที่บรรทัดที่อยู่ ถ้าเราติม `%` หลัง `s` จะเป็นการ replace ทั้งไฟล์
 
 ## Basic Commands
 
-* `:e filename` to edit another file
-* `:sp filename` หรือ `:new filename` to split the window horizontally and edit another file
-* `:vsp filename` for vertical split
+* `:e filename` ใช้ edit ไฟล์ "filename"
+* `:sp filename` หรือ `:new filename` ใช้ split แบบ horizontally เพื่อมา edit
+* `:vsp filename` ใช้ split แบบ vertically
 
 ## Useful Shortcuts
 
-* `yy` to yank (copy) a line, `p` or `P` to paste after or before the cursor respectively.
-* `d$` to delete to the end of the line, `d^` to delete to the start.
+* `yy` ใช้สำหรับ yank หรือ copy ทั้งแถว ส่วน `p` or `P` ใช้ใน paste หลัง หรือ ก่อนหน้า cursor ตามลำดับ
+* `d$` ใช้ลบตั้งแต่ cursor ไปจนสิ้นสุดบรรทัด ส่วน `d^` ใช้ลบตั้งแต่ cursor ไปจนจุดเริ่มของบรรทัด
 
 ## Plugins
 

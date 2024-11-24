@@ -20,3 +20,10 @@ nvim <file_name>
     ```
     alias vim="nvim"
     ```
+
+Plugin ใน Neovim มีหลายตัวให้เลือกใช้ สำหรับเวิร์คชอปนี้เราจะใช้
+[lazy.nvim](https://github.com/folke/lazy.nvim){: target="_blank"} กัน
+
+## วิธีติดตั้ง Lazy
+
+เราจะทำตาม [Installation | lazy.nvim](https://lazy.folke.io/installation) เลย

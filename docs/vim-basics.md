@@ -117,7 +117,8 @@ ruby test/fizzbuzz_test.rb
 
 ## Useful Shortcuts
 
-* `yy` ใช้สำหรับ yank หรือ copy ทั้งแถว ส่วน `p` or `P` ใช้ใน paste หลัง หรือ ก่อนหน้า cursor ตามลำดับ
+* `yy` ใช้สำหรับ yank หรือ copy ทั้งแถ
+* `p` or `P` ใช้ใน paste หลัง หรือ ก่อนหน้า cursor ตามลำดับ
 * `d$` ใช้ลบตั้งแต่ cursor ไปจนสิ้นสุดบรรทัด ส่วน `d^` ใช้ลบตั้งแต่ cursor ไปจนจุดเริ่มของบรรทัด
 
 ## Plugins

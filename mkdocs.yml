@@ -24,6 +24,7 @@ plugins:
       show_email_address: false
   - git-revision-date-localized:
       enable_creation_date: false
+  - search
 
 nav:
   - Home: index.md

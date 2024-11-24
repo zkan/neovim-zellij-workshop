@@ -2,7 +2,7 @@
 
 ในหัวข้อนี้จะอ้างอิงจากโครงสร้างของ Neovim configuration
 ที่ทำไว้ในหัวข้อ[การจัดโครงสร้างโฟลเดอร์ Neovim
-Configuration](neovim-lazy.md#neovim-configuration)
+Configuration](./neovim-lazy.md#neovim-configuration)
 
 ## การสั่งรัน Ruby Tests ผ่าน Neovim ใน Zellij
 

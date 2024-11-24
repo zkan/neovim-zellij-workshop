@@ -100,3 +100,6 @@ require("lazy").setup({
 ```
 
 Plugins ที่แนะนำให้ใช้ก็จะมีตามที่ใส่ไว้ในโฟลเดอร์ `plugins` ด้านบนเลย
+
+ดูไฟล์ configuration ต่าง ๆ
+แต่ละไฟล์ได้ที่ [zkan/nvim](https://github.com/zkan/nvim){: target="blank"}

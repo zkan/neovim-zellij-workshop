@@ -2,9 +2,11 @@
 
 การใช้ Neovim กับ Zellij จะช่วยทำให้เราเข้าสู่ flow state ได้ และจะทำให้การเขียนโปรแกรมของเรากลับมาสนุกอีกครั้ง 🥰
 
-![](./img/grok-developer-in-the-flow-state-coding-intensely-in-a-dimly-lit-room-with-a-blurred-background.jpg)
+![Developer in the flow state coding intensely in a dimly lit room with a blurred background](./img/grok-developer-in-the-flow-state-coding-intensely-in-a-dimly-lit-room-with-a-blurred-background.jpg)
 
-**หมายเหตุ:** รูปถูกสร้างโดยใช้ Grok กับ prompt "developer in the flow state coding intensely in a dimly lit room with a blurred background"
+**หมายเหตุ:** รูปถูกสร้างโดยใช้ [Grok](https://x.ai/){: target="_blank"} กับ prompt
+"developer in the flow state coding intensely in a dimly lit room with a
+blurred background"
 
 ## เนื้อหาเวิร์คชอป
 

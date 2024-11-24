@@ -6,6 +6,40 @@ Vim มาจากคำว่า Vi IMproved เป็น open-source cross-pl
 พัฒนาโดย [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar)
 และถุกปล่อยออกมาใช้งานตั้งแต่ปี 1991
 
+### Learning Vim with FizzBuzz
+
+เราจะมาหัดใช้ Vim โดยการใช้ภาษา Ruby ทำโจทย์ [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) กัน
+
+File: `test/fizzbuzz_test.rb`
+
+```ruby
+require "minitest/autorun"
+require_relative "../fizzbuzz"
+
+class FizzBuzzTest < Minitest::Test
+  def test_it_should_get_fizz_when_input_is_3
+    result = fizzbuzz(3)
+    assert_equal "Fizz", result
+  end
+end
+```
+
+File: `fizzbuzz.rb`
+
+```ruby
+def fizzbuzz(number)
+  "Fizz"
+end
+```
+
+รันคำสั่ง
+
+```sh
+ruby test/fizzbuzz_test.rb
+```
+
+เดี๋ยวเราจะมาค่อย ๆ เรียนรู้ Vim และทำต่อให้จบกัน 😎
+
 ## Understanding Vim Modes
 
 Vim มีโหมดที่ใช้หลัก ๆ ตามนี้
@@ -43,40 +77,6 @@ vim <file_name>
 ตอนที่เราอยู่ใน Vim แล้ว ที่โหมด normal
 
 * `:w` สำหรับการเซฟไฟล์ หรือ `:w <new_file_name>` เพื่อเซฟไฟล์ใหม่ตามชื่อที่กำหนด
-
-### Let's Implement a FizzBuzz Program
-
-เราจะมาหัดใช้ Vim โดยการใช้ภาษา Ruby ทำโจทย์ [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) กัน
-
-File: `test/fizzbuzz_test.rb`
-
-```ruby
-require "minitest/autorun"
-require_relative "../fizzbuzz"
-
-class FizzBuzzTest < Minitest::Test
-  def test_it_should_get_fizz_when_input_is_3
-    result = fizzbuzz(3)
-    assert_equal "Fizz", result
-  end
-end
-```
-
-File: `fizzbuzz.rb`
-
-```ruby
-def fizzbuzz(number)
-  "Fizz"
-end
-```
-
-รันคำสั่ง
-
-```sh
-ruby test/fizzbuzz_test.rb
-```
-
-เดี๋ยวเราจะมาค่อย ๆ ทำต่อให้จบกัน 😎
 
 ## Saving and Quitting
 

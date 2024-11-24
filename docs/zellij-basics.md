@@ -21,7 +21,11 @@ zellij
 zellij -h
 ```
 
-เราจะเข้ามาที่หน้าจอแบบนี้ ซึ่งเป็น default configuration ของ Zellij ถ้าเราอยากปรับหน้าตา
+เราจะเข้ามาที่หน้าจอแบบนี้
+
+![Zellij default layout](./img/zellij-default-layout.png)
+
+ซึ่งเป็น default configuration ของ Zellij ถ้าเราอยากปรับหน้าตา
 default ให้เข้าไปอ่านส่วน [Layouts - Zellij User
 Guide](https://zellij.dev/documentation/layouts){: target="_blank"}
 

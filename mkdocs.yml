@@ -1,5 +1,7 @@
+repo_name: zkan/neovim-zellij-workshop
+repo_url: https://github.com/zkan/neovim-zellij-workshop/
 site_name: Neovim and Zellij Workshop
-site_url: https://mydomain.org/mysite
+site_url: https://zkan.github.io/neovim-zellij-workshop/
 
 theme:
   name: material

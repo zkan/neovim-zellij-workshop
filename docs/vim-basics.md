@@ -115,9 +115,9 @@ vim <file_name>
 
 ## Basic Commands
 
-* `:e filename` ใช้ edit ไฟล์ "filename"
-* `:sp filename` หรือ `:new filename` ใช้ split แบบ horizontally เพื่อมา edit
-* `:vsp filename` ใช้ split แบบ vertically
+* `:e file_name` ใช้ edit ไฟล์ "file_name"
+* `:sp file_name` หรือ `:new file_name` ใช้ split แบบ horizontally เพื่อมา edit
+* `:vsp file_name` ใช้ split แบบ vertically
 
 ## Useful Shortcuts
 

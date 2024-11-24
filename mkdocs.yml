@@ -1,10 +1,14 @@
 site_name: Neovim and Zellij Workshop
 site_url: https://mydomain.org/mysite
+
 theme:
   name: material
   features:
     - content.code.copy
+
 markdown_extensions:
+  - admonition
+  - attr_list
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -12,6 +16,13 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
+plugins:
+  - git-authors:
+      show_email_address: false
+  - git-revision-date-localized:
+      enable_creation_date: true
+
 nav:
   - Home: index.md
   - Vim Basics: vim-basics.md

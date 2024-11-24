@@ -2,7 +2,7 @@
 
 > Vim-fork focused on extensibility and usability
 
-ดูวิธีติดตั้งได้ที่ [neovim/INSTALL.md](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+ดูวิธีติดตั้งได้ที่ [neovim/INSTALL.md](https://github.com/neovim/neovim/blob/master/INSTALL.md){: target="_blank"}
 
 คำสั่งต่าง ๆ จะเหมือน Vim หมด แล้วก็เวลาเปิดไฟล์จะใช้คำสั่ง `nvim` แทน ตามนี้
 
@@ -10,8 +10,10 @@
 nvim <file_name>
 ```
 
-หรือจะตั้ง alias ไว้ใน `~/.zshrc` หรือไฟล์ `rc` อื่น ๆ ก็ได้เช่นกัน
+!!! note "ใช้ Alias เรียก `vim` เพื่อเปิด Neovim"
 
-```
-alias vim="nvim"
-```
+    เราสามารถตั้ง alias เพื่อเปิด Neovim เวลาที่เราสั่ง `vim` โดยการใส่บรรทัดด้านล่างนี้ไว้ใน `~/.zshrc` หรือไฟล์ `rc` อื่น ๆ
+
+    ```
+    alias vim="nvim"
+    ```

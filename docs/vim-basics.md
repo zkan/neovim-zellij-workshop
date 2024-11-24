@@ -3,12 +3,13 @@
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;ve been using Vim for about 2 years now, mostly because I can&#39;t figure out how to exit it.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/435555976687923200?ref_src=twsrc%5Etfw">February 17, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Vim มาจากคำว่า Vi IMproved เป็น open-source cross-platform text editor ตัวหนึ่ง
-พัฒนาโดย [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar)
-และถุกปล่อยออกมาใช้งานตั้งแต่ปี 1991
+พัฒนาโดย [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar){:
+target="_blank"} และถุกปล่อยออกมาใช้งานตั้งแต่ปี 1991
 
 ### Learning Vim with FizzBuzz
 
-เราจะมาหัดใช้ Vim โดยการใช้ภาษา Ruby ทำโจทย์ [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) กัน
+เราจะมาหัดใช้ Vim โดยการใช้ภาษา Ruby ทำโจทย์
+[FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz){: target="_blank"} กัน
 
 File: `test/fizzbuzz_test.rb`
 
@@ -64,7 +65,8 @@ Vim มีโหมดที่ใช้หลัก ๆ ตามนี้
    `:` (colon)
 
 ดูโหมดอื่น ๆ เพิ่มเติมได้ที่ [Vim documentation:
-intro](https://vimdoc.sourceforge.net/htmldoc/intro.html#vim-modes-intro)
+intro](https://vimdoc.sourceforge.net/htmldoc/intro.html#vim-modes-intro){:
+target="_blank"}
 
 ## Opening a File
 
@@ -127,9 +129,9 @@ vim <file_name>
 
 ## Plugins
 
-สามารถไปส่องได้ที่ [Vim Awesome](https://vimawesome.com/) ส่วน plugin manager แนะนำ
-[vim-plug](https://junegunn.github.io/vim-plug/) เพราะว่ารู้สึกว่าใช้ง่ายที่สุด
-แล้วเค้าก็เคลมว่าเค้าเป็น minimalist design 😂
+สามารถไปส่องได้ที่ [Vim Awesome](https://vimawesome.com/){: target="_blank"} ส่วน
+plugin manager แนะนำ [vim-plug](https://junegunn.github.io/vim-plug/){:
+target="_blank"} เพราะว่ารู้สึกว่าใช้ง่ายที่สุด แล้วเค้าก็เคลมว่าเค้าเป็น minimalist design 😂
 
 
 ## Customization
@@ -163,4 +165,4 @@ map <Right> <Nop>
 
 ## References
 
-* [Vim Cheat Sheet](https://vim.rtorr.com/)
+* [Vim Cheat Sheet](https://vim.rtorr.com/){: target="_blank"}

@@ -2,6 +2,8 @@
 
 > Vim-fork focused on extensibility and usability
 
+## วิธีติดตั้ง Neovim
+
 ดูวิธีติดตั้งได้ที่
 [neovim/INSTALL.md](https://github.com/neovim/neovim/blob/master/INSTALL.md){: target="_blank"}
 

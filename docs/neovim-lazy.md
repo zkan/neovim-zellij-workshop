@@ -48,8 +48,13 @@ Plugin แรกที่เราจะลองติดตั้งคือ 
 { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 ```
 
-เข้าไปที่ส่วน `spec` ใน `require("lazy").setup` พร้อมกับปรับ `colorscheme` จากเดิมที่เป็น
-`"habamax"` ให้เป็น `"catppuccin"` ด้วย สุดท้ายเราจะได้โค้ดตามนี้
+เข้าไปที่ส่วน `spec` ใน `require("lazy").setup` พร้อมกับเติมบรรทัดด้านล่างนี้เพื่อใช้งาน
+
+```lua
+vim.cmd.colorscheme "catppuccin"
+```
+
+สุดท้ายเราจะได้โค้ดตามนี้
 
 ```lua
 -- Setup lazy.nvim
@@ -59,10 +64,12 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+vim.cmd.colorscheme "catppuccin"
 ```
 
 หลังจากนั้นพอเราเปิด Neovim ขึ้นมา Catppuccin ก็จะถูกติดตั้งโดยอัตโมมัติ

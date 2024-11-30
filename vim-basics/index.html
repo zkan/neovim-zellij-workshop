@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://zkan.github.io/neovim-zellij-workshop/vim-basics/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../neovim-lazy/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Vim Basics - Neovim and Zellij Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vim-basics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Neovim and Zellij Workshop" class="md-header__button md-logo" aria-label="Neovim and Zellij Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Neovim and Zellij Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vim Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zkan/neovim-zellij-workshop/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zkan/neovim-zellij-workshop
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Neovim and Zellij Workshop" class="md-nav__button md-logo" aria-label="Neovim and Zellij Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Neovim and Zellij Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zkan/neovim-zellij-workshop/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zkan/neovim-zellij-workshop
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vim Basics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Vim Basics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-vim-with-fizzbuzz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Vim with FizzBuzz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-vim-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Vim Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opening a File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-and-quitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving and Quitting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-and-replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search and Replace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Shortcuts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neovim-lazy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neovim and its Plugin Manager (Lazy)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zellij-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zellij Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neovim-and-zellij-together/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neovim and Zellij Together
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-vim-with-fizzbuzz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Vim with FizzBuzz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-vim-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Vim Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opening a File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-and-quitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving and Quitting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-and-replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search and Replace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Shortcuts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="vim-basics">Vim Basics</h1>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;ve been using Vim for about 2 years now, mostly because I can&#39;t figure out how to exit it.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/435555976687923200?ref_src=twsrc%5Etfw">February 17, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Vim มาจากคำว่า Vi IMproved เป็น open-source cross-platform text editor ตัวหนึ่ง
+พัฒนาโดย <a href="https://en.wikipedia.org/wiki/Bram_Moolenaar" target="_blank">Bram Moolenaar</a>
+และถุกปล่อยออกมาใช้งานตั้งแต่ปี 1991</p>
+<h3 id="learning-vim-with-fizzbuzz">Learning Vim with FizzBuzz</h3>
+<p>เราจะมาหัดใช้ Vim โดยการใช้ภาษา Ruby ทำโจทย์
+<a href="https://en.wikipedia.org/wiki/Fizz_buzz" target="_blank">FizzBuzz</a> กัน
+ก่อนอื่นให้สร้างโฟลเดอร์เปล่า ๆ ขึ้นมา</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>neovim-zellij-workshop
+</span></code></pre></div>
+<p>แล้วเดี๋ยวเราจะค่อย ๆ เพิ่มไฟล์ด้านล่างนี้กัน</p>
+<p>File: <code>test/fizzbuzz_test.rb</code></p>
+<div class="language-ruby highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">require</span><span class="w"> </span><span class="s2">&quot;minitest/autorun&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">require_relative</span><span class="w"> </span><span class="s2">&quot;../fizzbuzz&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_it_should_get_fizz_when_input_is_3</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">end</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">end</span>
+</span></code></pre></div>
+<p>File: <code>fizzbuzz.rb</code></p>
+<div class="language-ruby highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="s2">&quot;Fizz&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">end</span>
+</span></code></pre></div>
+<p>รันคำสั่ง</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ruby<span class="w"> </span>test/fizzbuzz_test.rb
+</span></code></pre></div>
+<p>ถ้ารันเทสได้ ไม่ติดปัญหาอะไร เราก็สามารถทำเวิร์คชอปกันต่อได้ล่ะ ซึ่งเดี๋ยวเราจะมาค่อย ๆ เรียนรู้ Vim
+และทำโปรแกรม FizzBuzz ต่อให้จบกัน 😎</p>
+<h2 id="understanding-vim-modes">Understanding Vim Modes</h2>
+<p>Vim มีโหมดที่ใช้หลัก ๆ ตามนี้</p>
+<ol>
+<li>
+<p><strong>Normal:</strong> เป็นโหมด default ที่เราสามารถที่จะเลื่อนหรือสำรวจข้อความ สั่งคำสั่ง
+   และย้ายไปโหมดอื่น เข้าโหมด normal โดยการกด <code>Esc</code> จากโหมดไหนก็ได้</p>
+</li>
+<li>
+<p><strong>Insert:</strong> เป็นโหมดที่ใช้สำรับเพิ่มหรือแก้ไขข้อความ เข้าโหมด insert โดยการกด</p>
+<ul>
+<li><code>i</code> (insert before cursor) ส่วน <code>I</code> ใช้ insert ที่ต้นบรรทัด</li>
+<li><code>a</code> (append after cursor) ส่วน <code>A</code> ใช้ append ที่ท้ายบรรทัด</li>
+<li><code>o</code> (open a new line below current line and enter insert mode)</li>
+<li><code>O</code> (open a new line above current line and enter insert mode)</li>
+</ul>
+</li>
+<li>
+<p><strong>Visual:</strong> สำหรับ selecting ข้อความ เข้าโหมด visual โดยการกด</p>
+<ul>
+<li><code>v</code> (character-wise selection)</li>
+<li><code>V</code> (line-wise selection)</li>
+<li><code>Ctrl+v</code> (block-wise selection)</li>
+</ul>
+</li>
+<li>
+<p><strong>Command-line:</strong> สำหรับการสั่งคำสั่ง หรือใช้ค้นหาคำ เข้าโหมด command-line โดยการกด
+   <code>:</code> (colon)</p>
+</li>
+</ol>
+<p>ดูโหมดอื่น ๆ เพิ่มเติมได้ที่ <a href="https://vimdoc.sourceforge.net/htmldoc/intro.html#vim-modes-intro" target="_blank">Vim documentation:
+intro</a></p>
+<h2 id="opening-a-file">Opening a File</h2>
+<p>เปิดไฟล์เราใช้คำสั่ง</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vim<span class="w"> </span>&lt;file_name&gt;
+</span></code></pre></div>
+<p>ตอนที่เราอยู่ใน Vim แล้ว ที่โหมด normal</p>
+<ul>
+<li><code>:w</code> สำหรับการเซฟไฟล์ หรือ <code>:w &lt;new_file_name&gt;</code> เพื่อเซฟไฟล์ใหม่ตามชื่อที่กำหนด</li>
+</ul>
+<h2 id="saving-and-quitting">Saving and Quitting</h2>
+<ul>
+<li><code>:q</code> เพื่อออกจาก Vim หรือใช้ <code>:q!</code> เพื่ออกจาก Vim แบบ force (ไม่เซฟไฟล์)</li>
+<li><code>:wq</code> หรือ <code>ZZ</code> เพื่อเซฟ และออกจาก Vim</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> สำหรับไปทาง ซ้าย, ลง, ขึ้น, ขวา ตามลำดับ (<a href="https://dave.cheney.net/2017/08/21/the-here-is-key" target="_blank">ทำไม <code>hjkl</code></a>?)</li>
+<li><code>w</code> ใช้เลื่อนไปข้างหน้า 1 คำ ส่วน <code>b</code> ใช้เลื่อนถอยหลัง 1 คำ</li>
+<li><code>$</code> ไปที่ท้ายสุดของบรรทัด ส่วน <code>0</code> ไปที่ต้นบรรทัด</li>
+<li><code>gg</code> ไปที่ด้านบนสุดของไฟล์ ส่วน <code>G</code> ไปที่ล่างสุด</li>
+</ul>
+<p>เพิ่มเติม ถ้าเราพิมพ์ตัวเลขก่อน แล้วค่อย navigate ก็จะเป็นการกระโดดไปเป็นจำนวนตามตัวเลข เช่น
+<code>10k</code> จะเป็นการ nagivate ไปทางขวา 10 ตัวอักษร เป็นต้น</p>
+<ul>
+<li><code>Ctrl+e</code> เป็นการเลื่อนหน้าจอลง 1 แถว ส่วน <code>Ctrl+y</code> เป็นการเลื่อนหน้าจอขึ้น 1 แถว</li>
+<li><code>Ctrl+d</code> เป็น 1/2 page down ส่วน <code>Ctrl+u</code> จะเป็น 1/2 page up</li>
+<li><code>Ctrl+f</code> เป็น 1 page down ส่วน <code>Ctrl+b</code> จะเป็น 1 page up</li>
+<li>เวลาที่อยากจะกระโดดจากสิ่งที่อยู่คู่กัน เช่น เปิด <code>{</code> กับ ปิด <code>}</code> ให้เลื่อน cursor ไปบนนั้นแล้วกด <code>%</code> ซึ่งสามารถกระโดดย้อนไปย้อนมาได้ (ใช้กับ tag HTML ได้ด้วย)</li>
+</ul>
+<h2 id="editing-text">Editing Text</h2>
+<ul>
+<li><code>x</code> ใช้ลบ 1 อักษร</li>
+<li><code>dw</code> ใช้ลบ 1 คำ ส่วน <code>dd</code> ใช้ลบทั้งแถว</li>
+<li><code>u</code> ใช้ undo การเปลี่ยนแปลงล่าสุด ส่วน <code>Ctrl+r</code> ใช้ redo</li>
+<li>คลุมแถบดำโดยใช้ <code>V</code> เสร็จแล้วกด <code>U</code> จะเป็นการเปลี่ยนเป็น upper case ทั้งหมด</li>
+<li>คลุมแถบดำโดยใช้ <code>V</code> เสร็จแล้วกด <code>u</code> จะเป็นการเปลี่ยนเป็น lower case ทั้งหมด</li>
+<li>ครอบ + <code>&gt;</code> จะเป็นการ indent ไปทางขวา ถ้า <code>&lt;</code> ก็จะ indent ไปทางซ้าย</li>
+</ul>
+<h2 id="search-and-replace">Search and Replace</h2>
+<ul>
+<li><code>/pattern</code> ใช้ search หาคำว่า "pattern" แบบ forward</li>
+<li><code>?pattern</code> ใช้ search แบบ backward</li>
+<li><code>:s/old/new/g</code> ใช้ replace คำว่า "old" ด้วยคำว่า "new" ที่บรรทัดที่อยู่ ถ้าเราติม <code>%</code> หลัง <code>s</code> จะเป็นการ replace ทั้งไฟล์</li>
+</ul>
+<h2 id="basic-commands">Basic Commands</h2>
+<ul>
+<li><code>:e file_name</code> ใช้ edit ไฟล์ "file_name"</li>
+<li><code>:sp file_name</code> หรือ <code>:new file_name</code> ใช้ split แบบ horizontally เพื่อมา edit</li>
+<li><code>:vsp file_name</code> ใช้ split แบบ vertically</li>
+</ul>
+<h2 id="useful-shortcuts">Useful Shortcuts</h2>
+<ul>
+<li><code>yy</code> ใช้สำหรับ yank หรือ copy ทั้งแถ</li>
+<li><code>p</code> or <code>P</code> ใช้ใน paste หลัง หรือ ก่อนหน้า cursor ตามลำดับ</li>
+<li><code>d$</code> ใช้ลบตั้งแต่ cursor ไปจนสิ้นสุดบรรทัด ส่วน <code>d^</code> ใช้ลบตั้งแต่ cursor ไปจนจุดเริ่มของบรรทัด</li>
+</ul>
+<h2 id="plugins">Plugins</h2>
+<p>สามารถไปส่องได้ที่ <a href="https://vimawesome.com/" target="_blank">Vim Awesome</a> ส่วน
+plugin manager แนะนำ <a href="https://junegunn.github.io/vim-plug/" target="_blank">vim-plug</a>
+เพราะว่ารู้สึกว่าใช้ง่ายที่สุด แล้วเค้าก็เคลมว่าเค้าเป็น minimalist design 😂</p>
+<h2 id="customization">Customization</h2>
+<p>ไฟล์ <code>~/.vimrc</code></p>
+<div class="language-vim highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">syntax</span> <span class="k">on</span>           <span class="c">&quot; syntax highlighting</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">set</span> <span class="nb">nocompatible</span>    <span class="c">&quot; use vim defaults</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">set</span> <span class="k">ls</span><span class="p">=</span><span class="m">2</span>            <span class="c">&quot; always show status line</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">set</span> <span class="nb">tabstop</span><span class="p">=</span><span class="m">4</span>       <span class="c">&quot; numbers of spaces of tab character</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">set</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span>    <span class="c">&quot; numbers of spaces to (auto)indent</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">set</span> <span class="nb">expandtab</span>       <span class="c">&quot; insert space characters whenever the tab key is pressed</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">set</span> <span class="nb">autoindent</span>      <span class="c">&quot; always set autoindenting on</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">set</span> <span class="nb">hlsearch</span>        <span class="c">&quot; highlight searches</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">set</span> <span class="nb">incsearch</span>       <span class="c">&quot; do incremental searching</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c">&quot; set number          &quot; show current line number</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">set</span> <span class="nb">relativenumber</span>  <span class="c">&quot; show line numbers</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">set</span> <span class="nb">ignorecase</span>      <span class="c">&quot; ignore case when searching</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">set</span> <span class="nb">title</span>           <span class="c">&quot; set title in console title bar</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">set</span> <span class="nb">ruler</span>           <span class="c">&quot; show the line and column number of the cursor position.</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">set</span> <span class="nb">colorcolumn</span><span class="p">=</span><span class="m">100</span> <span class="c">&quot; show the vertical line at column number 100</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">set</span> <span class="nb">autoread</span>        <span class="c">&quot; Reload unchanged files automatically.</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c">&quot; disable arrow keys</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>map <span class="p">&lt;</span>Up<span class="p">&gt;</span>    <span class="p">&lt;</span>Nop<span class="p">&gt;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>map <span class="p">&lt;</span>Down<span class="p">&gt;</span>  <span class="p">&lt;</span>Nop<span class="p">&gt;</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>map <span class="p">&lt;</span>Left<span class="p">&gt;</span>  <span class="p">&lt;</span>Nop<span class="p">&gt;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>map <span class="p">&lt;</span>Right<span class="p">&gt;</span> <span class="p">&lt;</span>Nop<span class="p">&gt;</span>
+</span></code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://vim.rtorr.com/" target="_blank">Vim Cheat Sheet</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2024</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      zkan
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://zkan.github.io/neovim-zellij-workshop/</loc>
+         <lastmod>2024-11-30</lastmod>
+    </url>
+    <url>
+         <loc>https://zkan.github.io/neovim-zellij-workshop/neovim-and-zellij-together/</loc>
+         <lastmod>2024-11-30</lastmod>
+    </url>
+    <url>
+         <loc>https://zkan.github.io/neovim-zellij-workshop/neovim-lazy/</loc>
+         <lastmod>2024-11-30</lastmod>
+    </url>
+    <url>
+         <loc>https://zkan.github.io/neovim-zellij-workshop/vim-basics/</loc>
+         <lastmod>2024-11-30</lastmod>
+    </url>
+    <url>
+         <loc>https://zkan.github.io/neovim-zellij-workshop/zellij-basics/</loc>
+         <lastmod>2024-11-30</lastmod>
+    </url>
+</urlset>

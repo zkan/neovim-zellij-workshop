@@ -8,6 +8,12 @@
 "developer in the flow state coding intensely in a dimly lit room with a
 blurred background"
 
+เพื่อให้เห็นภาพ flow state ชัดเจนมากขึ้น ลองดูคลิปวีดีโอด้านล่างนี้
+
+> Clear the mechanism
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V8x-o1V1OYI?si=976roqu-oC0N5aEZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## เนื้อหาเวิร์คชอป
 
 1. ทำความรู้จักกับการใช้งาน Vim ก่อน editor สุด cool ใช้แล้ว ดูหล่อขึ้น 300% แล้วต่อยอดไป
